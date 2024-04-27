@@ -7,8 +7,8 @@ app = Flask(__name__)
 def index():
     # Replace 'your_api_key' with the actual API key and 'Your_Location' with your location.
     api_url = "http://api.weatherapi.com/v1/current.json"
-    api_key = "f64a757c147d40828a660806242704"
-    location = "Atlanta"
+    api_key = ""
+    location = ""
     params = {
         'key': api_key,
         'q': location
