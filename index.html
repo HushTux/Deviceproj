@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sensor Readings and Weather Info</title>
+    <title>Sensor and Weather Information</title>
 </head>
 <body>
     <h1>Sensor Readings</h1>
-    <p>Temperature: {{ temperature }}°C</p>
-    <p>Humidity: {{ humidity }}%</p>
+    <p>Temperature: {{ data.sensor.temperature }}°C</p>
+    <p>Humidity: {{ data.sensor.humidity }}%</p>
 
     <h1>Weather Information</h1>
-    <p>Temperature: {{ weather.current.temp_c }}°C</p>
-    <p>Humidity: {{ weather.current.humidity }}%</p>
-    <p>Condition: {{ weather.current.condition.text }}</p>
-    <p>Wind Speed: {{ weather.current.wind_kph }} kph</p>
-    <!-- Add more fields as needed, based on the structure of the weather API response -->
+    {% if data.weather.current %}
+        <p>Temperature: {{ data.weather.current.temp_c }}°C</p>
+        <p>Humidity: {{ data.weather.current.humidity }}%</p>
+        <p>Condition: {{ data.weather.current.condition.text }}</p>
+        <p>Wind Speed: {{ data.weather.current.wind_kph }} kph</p>
+    {% else %}
+        <p>Weather data is not available at the moment.</p>
+    {% endif %}
 </body>
 </html>
